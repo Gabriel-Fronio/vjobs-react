@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/navigation/Header/Header';
 import List from './components/Job/JobList/JobList';
 import Form from './components/Job/JobForm/JobForm';
+import Collapse from './hoc/Collapse/Collapse';
 
 class App extends Component {
     render() {
@@ -10,7 +11,9 @@ class App extends Component {
             <div>
                 <Header />
                 <div className="container">
-                    <Form />
+                    <Collapse innerText="Criar Vaga">
+                        <Form />
+                    </Collapse>
                     <List />
                 </div>
             </div>

@@ -74,7 +74,7 @@ class List extends Component
 
         return (
             <div>
-                <Collapse innerText="Criar Vaga">
+                <Collapse innerText="Criar Vaga" id="collapseVaga">
                     <Form addToList={this.addItemToList}/>
                 </Collapse>
                 <div className="row ml-1 mr-1" id="linha">

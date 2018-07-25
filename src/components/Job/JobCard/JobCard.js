@@ -39,7 +39,7 @@ const card = (props) => {
                 <button onClick={props.removeHandler} className="btn btn-danger ml-1">
                     <i className="far fa-trash-alt"></i>
                 </button>
-                <Link className="btn btn-info btn-sm float-right mt-1" to={`id/${props.id}`}>
+                <Link className="btn btn-info btn-sm float-right mt-1" to={`/vaga/${props.id}`}>
                     <i class="fas fa-plus-circle"></i>
                 </Link>
             </div>

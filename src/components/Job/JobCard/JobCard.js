@@ -33,14 +33,14 @@ const card = (props) => {
                     <br /><b>Salário base:</b>
                     <br />{props.salary}
                 </p>
-                <button onClick={props.editHandler} className="btn btn-warning mr-1">
+                <Link to={`/editVaga/${props.id}`} className="btn btn-warning mr-1">
                     <i className="far fa-edit"></i>
-                </button>
+                </Link>
                 <button onClick={props.removeHandler} className="btn btn-danger ml-1">
                     <i className="far fa-trash-alt"></i>
                 </button>
                 <Link className="btn btn-info btn-sm float-right mt-1" to={`/vaga/${props.id}`}>
-                    <i class="fas fa-plus-circle"></i>
+                    <i className="fas fa-plus-circle"></i>
                 </Link>
             </div>
         </div>

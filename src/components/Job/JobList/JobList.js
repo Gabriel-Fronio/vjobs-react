@@ -33,8 +33,14 @@ class List extends Component
 
     jobRemoveHandler = (id, nome) =>
     {
+        const axiosConfig = {
+            headers: {
+                'Authorization': 'Bearer ' + window.localStorage.getItem('token')
+            }
+        }
+
         if(window.confirm(`Deseja realmente excluir a vaga "${nome}"?`)) {
-            axios.delete(`/vagas/${id}`).then(
+            axios.delete(`/vagas/${id}`, axiosConfig).then(
                 () => {
                     let vagasAtt = this.state.jobs;
                     vagasAtt.splice(this.state.jobs.findIndex(vaga => {return vaga.id === id}), 1);
@@ -42,7 +48,11 @@ class List extends Component
                     //this.forceUpdate(); -> se nao tivesse o setState, um forceUpdate tambem recarregaria a pag
                     window.alert('Excluído com sucesso!');
                 }
-            ).catch(err => {console.error(err.message)});
+            ).catch(err => {
+                if(err.response.status === 401)
+                    alert('Não autorizado');
+                console.error(err.message)
+            });
         }
     }
 

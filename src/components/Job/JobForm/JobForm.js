@@ -8,9 +8,15 @@ class Form extends Component {
     }
 
     postDataHandler = (event) => {
+        const axiosConfig = {
+            headers: {
+                'Authorization': 'Bearer ' + window.localStorage.getItem('token')
+            }
+        }
+
         let novaVaga = {...this.state.newJob};
 
-        axios.post('/vagas', novaVaga).then((response) => {
+        axios.post('/vagas', novaVaga, axiosConfig).then((response) => {
             novaVaga.id = response.data;
             this.props.addToList(novaVaga);
         }).catch(err => 
